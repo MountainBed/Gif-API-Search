@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#buttonarea {
+  border-bottom: 4px double skyblue;
+  padding: 10px;
+  width: 100%;
+}
+
+.topics-button {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0.3em;
+  color: darkblue;
+  padding: 10px 20px;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.21);
+  border-bottom: 4px solid rgba(0,0,0,0.21);
+  border-radius: 4px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  background-color: skyblue;
+  box-shadow:0px 4px 0px #decade;
+}
+
+.topics-button:hover{
+  background-color: deepskyblue;
+}
+
+.topics-button:active {
+  background-color: darkcyan;
+}
+.container {
+  display:block;
+  overflow:auto;
+}
+
+#gifarea {
+  float: left;
+  padding: 1em;
+  width: 70%;
+  height: 100%;
+  background-color: grey;
+}
+
+#searcharea {
+  display: inline;
+  float: right;
+  width: 30%;
+  padding: 1em;
+  background-color: indianred;
+}
