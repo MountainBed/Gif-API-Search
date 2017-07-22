@@ -30,37 +30,37 @@ var generateGIF = {
   },
   displayGIFs: function () {
     var word = $(this).attr("data-query");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + word + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + word + "&api_key=dc6zaTOxFJmzC&limit=10";
 
     $.ajax({
       url: queryURL,
       method: "GET"
     })
-      .done(function (response) {
-        $("#gifarea").empty();
-        var results = response.data;
-        if (results === "") {
-          alert("Uh oh! You picked a weird button. Try again!");
-        }
-        console.log(response);
-        for (var i = 0; i < results.length; i++) {
-          var gifDiv = $("<div class='gif-display'>");
-          var rating = results[i].rating;
-          var p = $("<p>").text("Rating: " + rating);
-          var gifImage = $("<img>");
+    .done(function (response) {
+      $("#gifarea").empty();
+      var results = response.data;
+      if (results === "") {
+        alert("Uh oh! You picked a weird button. Try again!");
+      }
+      console.log(response);
+      for (var i = 0; i < results.length; i++) {
+        var gifDiv = $("<div class='gif-display'>");
+        var rating = results[i].rating;
+        var p = $("<p>").text("Rating: " + rating);
+        var gifImage = $("<img>");
 
-          gifImage.attr("src", results[i].images.fixed_height_still.url);
-          gifImage.attr("data-still", results[i].images.fixed_height_still.url);
-          gifImage.attr("data-animate", results[i].images.fixed_height.url);
-          gifImage.attr("data-state", "still");
-          gifImage.addClass("gifclass");
+        gifImage.attr("src", results[i].images.fixed_height_still.url);
+        gifImage.attr("data-still", results[i].images.fixed_height_still.url);
+        gifImage.attr("data-animate", results[i].images.fixed_height.url);
+        gifImage.attr("data-state", "still");
+        gifImage.addClass("gifclass");
 
-          gifDiv.append(p);
-          gifDiv.append(gifImage);
+        gifDiv.append(p);
+        gifDiv.append(gifImage);
 
-          $("#gifarea").prepend(gifDiv);
-        }
-      });
+        $("#gifarea").prepend(gifDiv);
+      }
+    });
   },
   pauseGIF: function () {
     var state = $(this).attr("data-state");
