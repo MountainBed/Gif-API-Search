@@ -71,12 +71,15 @@ var generateGIF = {
       $(this).attr("src", $(this).attr("data-still"));
       $(this).attr("data-state", "still");
     }
+  },
+  Clicker: function () {
+    $(document).ready(function () {
+      generateGIF.createButtons();
+      generateGIF.addButtons();
+      $(document).on("click", ".topics-button", generateGIF.displayGIFs);
+      $(document).on("click", ".gifclass", generateGIF.pauseGIF);
+    });
   }
 };
 
-$(document).ready(function () {
-  generateGIF.createButtons();
-  generateGIF.addButtons();
-  $(document).on("click", ".topics-button", generateGIF.displayGIFs);
-  $(document).on("click", ".gifclass", generateGIF.pauseGIF);
-});
+generateGIF.Clicker();
